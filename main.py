@@ -75,9 +75,9 @@ def scrambled_display():
         for i in range(len(target)):
             if display[i] != target[i]:
                 display[i] = chr(random.randint(32, 126))
-        print(f"{''.join(display):<{len(target)}}", end='\r', flush=True)   # Overwrite the line
+        print(''.join(display), end='\r')   # Overwrite the line
         time.sleep(0.01)
-    print("".join(display))  # Final output without overwriting
+    print("".join(display))
 
 
 def main():
@@ -116,7 +116,7 @@ def main():
                 add = input("Not a valid value! Try again! ")
 
     for i in range(10, 0, -1):
-        print(f"Closing in {i} second{'s' if i > 1 else ''}... ", end='\r', flush=True)
+        print(f"Closing in {i} second(s)... ", end='\r', flush=True)
         time.sleep(1)
     print("Bye!")
 
