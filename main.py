@@ -118,7 +118,7 @@ def main():
     for i in range(10, 0, -1):
         print(f"Closing in {i} second{'s' if i > 1 else ''}... ", end='\r', flush=True)
         time.sleep(1)
-    print("Bye!                    ")
+    print("Bye!")
 
 
 
