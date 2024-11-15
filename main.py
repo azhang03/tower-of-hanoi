@@ -61,6 +61,8 @@ class Towers:
     def move(self, take, add):
         if self.pegs[take].size > 0:
             holder = self.pegs[take].checkTop()
+            if holder == -1:
+                return
         if self.pegs[take].removeTop():
             # If we are able to remove, try adding
             if not self.pegs[add].addToTop(holder):
