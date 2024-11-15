@@ -1,3 +1,8 @@
+# Towers of Hanoi Game
+import random
+import time
+
+# Class for the functionality of a single peg
 class Peg:
     def __init__(self, discnum, start = False):
         if start:
@@ -32,6 +37,7 @@ class Peg:
             self.size += 1
             return True
 
+# Class that holds the 3 pegs
 class Towers:
     def __init__(self, discnum):
         self.pegs = [Peg(discnum, True), Peg(discnum), Peg(discnum)]
@@ -61,7 +67,17 @@ class Towers:
                 # If we can't add, return the disc
                 self.pegs[take].addToTop(holder)
 
-
+# Fancy Completion Function
+def scrambled_display():
+    target = "YOU DID IT! CONGRATULATIONS!"
+    display = [" "] * len(target)
+    while ''.join(display) != target:
+        for i in range(len(target)):
+            if display[i] != target[i]:
+                display[i] = chr(random.randint(32, 126))
+        print(f"{''.join(display):<{len(target)}}", end='\r', flush=True)   # Overwrite the line
+        time.sleep(0.01)
+    print("".join(display))  # Final output without overwriting
 
 
 def main():
@@ -89,16 +105,20 @@ def main():
         if tower.checkSolved():
             take = 'q'
             print()
-            print("YOU'VE DONE IT! CONGRATULATIONS")
+            scrambled_display()
         else:
             take = input("What peg are you taking from? (0,1,2)\n").strip()
-            while (not take.isdigit()) or (int(take) < 0) or (int(take) > int(discnum) - 1):
+            while (not take.isdigit()) or (int(take) < 0) or (int(take) > 2):
                 take = input("Not a valid value! Try again! ")
 
             add = input("Where will you add this? (0,1,2)\n").strip()
-            while (not add.isdigit()) or (int(add) < 0) or (int(add) > int(discnum) - 1):
+            while (not add.isdigit()) or (int(add) < 0) or (int(add) > 2):
                 add = input("Not a valid value! Try again! ")
 
+    for i in range(10, 0, -1):
+        print(f"Closing in {i} second{'s' if i > 1 else ''}... ", end='\r', flush=True)
+        time.sleep(1)
+    print("Bye!                    ")
 
 
 
