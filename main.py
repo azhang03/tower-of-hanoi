@@ -76,11 +76,11 @@ def main():
     tower.display_pegs()
 
     take = input("What peg are you taking from? (0,1,2)\n").strip()
-    while (not take.isdigit()) or (int(take) < 0) or (int(take) > int(discnum)-1):
+    while (not take.isdigit()) or (int(take) < 0) or (int(take) > 2):
         take = input("Not a valid value! Try again! ")
 
     add = input("Where will you add this? (0,1,2)\n").strip()
-    while (not add.isdigit()) or (int(add) < 0) or (int(add) > int(discnum) - 1):
+    while (not add.isdigit()) or (int(add) < 0) or (int(add) > 2):
         add = input("Not a valid value! Try again! ")
 
     while (take != 'q'):
