@@ -2,7 +2,7 @@
 import random
 import time
 
-# Class for the functionality of a single peg
+# Class for the functionality of a peg
 class Peg:
     def __init__(self, discnum, start = False):
         if start:
